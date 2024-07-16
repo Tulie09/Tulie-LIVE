@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial; /* Added Arial font */
+        }
+        #logo {
+            width: 400px; /* Increased size */
+            height: 400px; /* Increased size */
+        }
+        #live-button {
+            background-color: black;
+            color: white;
+            padding: 30px 60px; /* Increased size */
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 25px; /* Increased font size */
+            border-radius: 50px; /* Added rounded corners */
+        }
+        #version {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img id="logo" src="logo.png" alt="Logo">
+    <button id="live-button">Regarder en direct</button>
+    <div id="version">V1</div> <!-- Added version text -->
+
+    <script>
+        document.getElementById('live-button').addEventListener('click', function() {
+            var liveUrl = "http://192.168.68.99:8080/tulie.webm?tkn=437096147";
+            window.location.href = liveUrl;
+        });
+    </script>
+</body>
+</html>
