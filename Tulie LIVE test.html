@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #date {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
+        }
+        #time {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+        }
+        #logo {
+            width: 200px;
+            height: 200px;
+        }
+        #live-button {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="date"></div>
+    <div id="time"></div>
+    <img id="logo" src="logo.png" alt="Logo">
+    <button id="live-button">Regarder en direct</button>
+
+    <script>
+        function updateTime() {
+            var now = new Date();
+            document.getElementById('time').textContent = now.toLocaleTimeString();
+            document.getElementById('date').textContent = now.toLocaleDateString();
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        document.getElementById('live-button').addEventListener('click', function() {
+            var liveUrl = "http://192.168.68.99:8080/tulie.webm?tkn=437096147";
+            window.location.href = liveUrl;
+        });
+    </script>
+</body>
+</html>
